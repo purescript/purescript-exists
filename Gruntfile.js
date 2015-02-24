@@ -34,6 +34,13 @@ module.exports = function(grunt) {
       }
     ],
 
+    pscDocs: {
+      readme: {
+        src: "src/**/*.purs",
+        dest: "README.md"
+      }
+    },
+
     execute: {
       tests: {
         src: "tmp/index.js"
@@ -47,6 +54,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-purescript");
  
   grunt.registerTask("test", ["pscMake:tests", "copy", "execute:tests"]);
-  grunt.registerTask("make", ["pscMake:lib", "dotPsci"]);
+  grunt.registerTask("make", ["pscMake:lib", "dotPsci", "pscDocs"]);
   grunt.registerTask("default", ["clean", "make", "test"]);
 };

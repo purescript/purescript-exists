@@ -3,11 +3,22 @@ module Main where
 import Debug.Trace
 import Data.Exists
 
-data Example a = Example a (a -> String)
- 
-runExample :: Exists Example -> String
-runExample = runExists (\(Example a f) -> f a)
- 
-test = runExample (mkExists (Example "Done" show))
+data Tuple a b = Tuple a b
 
-main = trace test
+snd :: forall a b. Tuple a b -> b
+snd (Tuple _ b) = b
+
+data StreamF a s = StreamF s (s -> Tuple s a) 
+
+type Stream a = Exists (StreamF a)
+
+nats :: Stream Number
+nats = mkExists $ StreamF 0 (\n -> Tuple (n + 1) n)
+
+head :: forall a. Stream a -> a
+head = runExists head'
+  where
+  head' :: forall s. StreamF a s -> a
+  head' (StreamF s f) = snd (f s) 
+
+main = print $ head nats
