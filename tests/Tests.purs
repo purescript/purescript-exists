@@ -1,6 +1,6 @@
 module Main where
 
-import Debug.Trace
+import Console 
 import Data.Exists
 
 data Tuple a b = Tuple a b
