@@ -1,5 +1,7 @@
 module Data.Exists where
 
+import Prelude
+
 -- | This type constructor can be used to existentially quantify over a type of kind `*`.
 -- |
 -- | Specifically, the type `Exists f` is isomorphic to the existential type `exists a. f a`.
@@ -33,10 +35,7 @@ foreign import data Exists :: (* -> *) -> *
 -- | nats :: Stream Number
 -- | nats = mkExists $ StreamF 0 (\n -> Tuple (n + 1) n)
 -- | ```
-foreign import mkExists
-  "function mkExists(fa) {\
-  \  return fa;\
-  \}" :: forall f a. f a -> Exists f
+foreign import mkExists :: forall f a. f a -> Exists f
  
 -- | The `runExists` function is used to eliminate a value of type `Exists f`. The rank 2 type ensures
 -- | that the existentially-quantified type does not escape its scope. Since the function is required
@@ -51,9 +50,4 @@ foreign import mkExists
 -- |   head' :: forall s. StreamF a s -> a
 -- |   head' (StreamF s f) = snd (f s) 
 -- | ```
-foreign import runExists
-  "function runExists(f) {\
-  \  return function(fa) {\
-  \    return f(fa);\
-  \  };\
-  \}" :: forall f r. (forall a. f a -> r) -> Exists f -> r
+foreign import runExists :: forall f r. (forall a. f a -> r) -> Exists f -> r

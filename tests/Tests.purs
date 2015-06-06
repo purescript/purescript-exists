@@ -1,5 +1,7 @@
 module Main where
 
+import Prelude
+
 import Console 
 import Data.Exists
 
