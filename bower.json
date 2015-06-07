@@ -2,20 +2,22 @@
   "name": "purescript-exists",
   "description": "Existential types as a library",
   "keywords": ["purescript"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/purescript/purescript-exists.git"
+  },
   "ignore": [
     "**/.*",
     "bower_components",
     "node_modules",
     "output",
-    "tests",
-    "output",
-    "js",
-    "tmp",
+    "test",
     "bower.json",
-    "Gruntfile.js",
+    "gulpfile.js",
     "package.json"
   ],
   "devDependencies": {
-    "purescript-console": "~0.1.0"
+    "purescript-console": "^0.1.0"
   }
 }

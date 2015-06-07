@@ -3,12 +3,12 @@
 
 // module Data.Exists
 
-exports.mkExists = function(fa) {
+exports.mkExists = function (fa) {
   return fa;
 };
- 
-exports.runExists = function(f) {
-  return function(fa) {
-      return f(fa);
+
+exports.runExists = function (f) {
+  return function (fa) {
+    return f(fa);
   };
 };
