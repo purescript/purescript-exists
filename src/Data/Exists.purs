@@ -1,6 +1,6 @@
 module Data.Exists where
 
-import Prelude
+import Unsafe.Coerce (unsafeCoerce)
 
 -- | This type constructor can be used to existentially quantify over a type of kind `*`.
 -- |
@@ -16,7 +16,7 @@ import Prelude
 -- | This type can be constructed by creating a type constructor `StreamF` as follows:
 -- |
 -- | ```purescript
--- | data StreamF a s = StreamF s (s -> Tuple s a) 
+-- | data StreamF a s = StreamF s (s -> Tuple s a)
 -- | ```
 -- |
 -- | We can then define the type of streams using `Exists`:
@@ -35,19 +35,21 @@ foreign import data Exists :: (* -> *) -> *
 -- | nats :: Stream Number
 -- | nats = mkExists $ StreamF 0 (\n -> Tuple (n + 1) n)
 -- | ```
-foreign import mkExists :: forall f a. f a -> Exists f
- 
+mkExists :: forall f a. f a -> Exists f
+mkExists = unsafeCoerce
+
 -- | The `runExists` function is used to eliminate a value of type `Exists f`. The rank 2 type ensures
 -- | that the existentially-quantified type does not escape its scope. Since the function is required
 -- | to work for _any_ type `a`, it will work for the existentially-quantified type.
--- | 
+-- |
 -- | For example, we can write a function to obtain the head of a stream by using `runExists` as follows:
--- | 
+-- |
 -- | ```purescript
 -- | head :: forall a. Stream a -> a
 -- | head = runExists head'
 -- |   where
 -- |   head' :: forall s. StreamF a s -> a
--- |   head' (StreamF s f) = snd (f s) 
+-- |   head' (StreamF s f) = snd (f s)
 -- | ```
-foreign import runExists :: forall f r. (forall a. f a -> r) -> Exists f -> r
+runExists :: forall f r. (forall a. f a -> r) -> Exists f -> r
+runExists = unsafeCoerce

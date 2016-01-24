@@ -2,8 +2,10 @@ module Test.Main where
 
 import Prelude
 
-import Control.Monad.Eff.Console
-import Data.Exists
+import Control.Monad.Eff (Eff)
+import Control.Monad.Eff.Console (CONSOLE, logShow)
+
+import Data.Exists (Exists, mkExists, runExists)
 
 data Tuple a b = Tuple a b
 
@@ -23,4 +25,5 @@ head = runExists head'
   head' :: forall s. StreamF a s -> a
   head' (StreamF s f) = snd (f s)
 
-main = print $ head nats
+main :: Eff (console :: CONSOLE) Unit
+main = logShow $ head nats
