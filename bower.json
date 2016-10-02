@@ -17,9 +17,9 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-unsafe-coerce": "^1.0.0"
+    "purescript-unsafe-coerce": "^2.0.0"
   },
   "devDependencies": {
-    "purescript-console": "^1.0.0"
+    "purescript-console": "^2.0.0"
   }
 }
