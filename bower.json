@@ -2,7 +2,7 @@
   "name": "purescript-exists",
   "homepage": "https://github.com/purescript/purescript-exists",
   "description": "Existential types as a library",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "git://github.com/purescript/purescript-exists.git"
@@ -17,9 +17,9 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-unsafe-coerce": "purescript/purescript-unsafe-coerce#compiler/0.12"
+    "purescript-unsafe-coerce": "^4.0.0"
   },
   "devDependencies": {
-    "purescript-console": "purescript/purescript-console#compiler/0.12"
+    "purescript-console": "^4.0.0"
   }
 }
