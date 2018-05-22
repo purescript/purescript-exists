@@ -2,8 +2,8 @@ module Test.Main where
 
 import Prelude
 
-import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Console (CONSOLE, logShow)
+import Effect (Effect)
+import Effect.Console (logShow)
 
 import Data.Exists (Exists, mkExists, runExists)
 
@@ -25,5 +25,5 @@ head = runExists head'
   head' :: forall s. StreamF a s -> a
   head' (StreamF s f) = snd (f s)
 
-main :: Eff (console :: CONSOLE) Unit
+main :: Effect Unit
 main = logShow $ head nats
