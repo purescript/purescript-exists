@@ -26,6 +26,8 @@ import Unsafe.Coerce (unsafeCoerce)
 -- | ```
 foreign import data Exists :: (Type -> Type) -> Type
 
+type role Exists representational
+
 -- | The `mkExists` function is used to introduce a value of type `Exists f`, by providing a value of
 -- | type `f a`, for some type `a` which will be hidden in the existentially-quantified type.
 -- |
