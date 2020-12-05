@@ -1,14 +1,14 @@
 # purescript-exists
 
 [![Latest release](http://img.shields.io/github/release/purescript/purescript-exists.svg)](https://github.com/purescript/purescript-exists/releases)
-[![Build status](https://travis-ci.org/purescript/purescript-exists.svg?branch=master)](https://travis-ci.org/purescript/purescript-exists)
+[![Build status](https://github.com/purescript/purescript-exists/workflows/CI/badge.svg?branch=master)](https://github.com/purescript/purescript-exists/actions?query=workflow%3ACI+branch%3Amaster)
 
 The `Exists` type, for encoding existential types.
 
 ## Installation
 
 ```
-bower install purescript-exists
+spago install exists
 ```
 
 ## Overview
