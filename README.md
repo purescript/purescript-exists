@@ -2,6 +2,7 @@
 
 [![Latest release](http://img.shields.io/github/release/purescript/purescript-exists.svg)](https://github.com/purescript/purescript-exists/releases)
 [![Build status](https://github.com/purescript/purescript-exists/workflows/CI/badge.svg?branch=master)](https://github.com/purescript/purescript-exists/actions?query=workflow%3ACI+branch%3Amaster)
+[![Pursuit](https://pursuit.purescript.org/packages/purescript-exists/badge)](https://pursuit.purescript.org/packages/purescript-exists)
 
 The `Exists` type, for encoding existential types.
 
