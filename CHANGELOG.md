@@ -5,7 +5,7 @@ Notable changes to this project are documented in this file. The format is based
 ## [Unreleased]
 
 Breaking changes:
-- Updated dependencies for PureScript 0.14 (#10)
+- Added support for PureScript 0.14 and dropped support for all previous versions (#10)
 
 New features:
 - Added roles declarations to allow safe coercions (#9) 
@@ -14,7 +14,7 @@ Bugfixes:
 
 Other improvements:
 - Migrated CI to GitHub Actions and updated installation instructions to use Spago (#11)
-- Added a CHANGELOG.md file and pull request template (#12 #13)
+- Added a CHANGELOG.md file and pull request template (#12, #13)
 
 ## [v4.0.0](https://github.com/purescript/purescript-exists/releases/tag/v4.0.0) - 2018-05-23
 
