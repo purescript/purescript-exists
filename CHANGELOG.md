@@ -9,6 +9,7 @@ Breaking changes:
 
 New features:
 - Added roles declarations to allow safe coercions (#9) 
+- Generalized `Exists` to hold non-`Type`-kinded types (#14)
 
 Bugfixes:
 
