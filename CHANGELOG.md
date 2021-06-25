@@ -12,6 +12,11 @@ Bugfixes:
 
 Other improvements:
 
+## [v5.1.0](https://github.com/purescript/purescript-exists/releases/tag/v5.1.0) - 2021-06-25
+
+New features:
+- Generalized `Exists` to hold non-`Type`-kinded types (#14 by @rhendric)
+
 ## [v5.0.0](https://github.com/purescript/purescript-exists/releases/tag/v5.0.0) - 2021-02-26
 
 Breaking changes:
@@ -19,9 +24,6 @@ Breaking changes:
 
 New features:
 - Added roles declarations to allow safe coercions (#9) 
-- Generalized `Exists` to hold non-`Type`-kinded types (#14)
-
-Bugfixes:
 
 Other improvements:
 - Migrated CI to GitHub Actions and updated installation instructions to use Spago (#11)
