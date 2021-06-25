@@ -2,7 +2,7 @@ module Data.Exists where
 
 import Unsafe.Coerce (unsafeCoerce)
 
--- | This type constructor can be used to existentially quantify over a type of kind `Type`.
+-- | This type constructor can be used to existentially quantify over a type.
 -- |
 -- | Specifically, the type `Exists f` is isomorphic to the existential type `exists a. f a`.
 -- |
@@ -24,7 +24,7 @@ import Unsafe.Coerce (unsafeCoerce)
 -- | ```purescript
 -- | type Stream a = Exists (StreamF a)
 -- | ```
-foreign import data Exists :: (Type -> Type) -> Type
+foreign import data Exists :: forall k. (k -> Type) -> Type
 
 type role Exists representational
 

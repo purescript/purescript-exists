@@ -25,5 +25,24 @@ head = runExists head'
   head' :: forall s. StreamF a s -> a
   head' (StreamF s f) = snd (f s)
 
+data Maybe a = Nothing | Just a
+
+count :: forall a. Maybe a -> Int
+count Nothing = 0
+count _ = 1
+
+data FooF f = FooF (forall a. f a -> Int) (f String)
+
+type Foo = Exists FooF
+
+foo :: Foo
+foo = mkExists $ FooF count (Just "test")
+
+x :: Int
+x = runExists runFooF foo
+  where
+  runFooF :: forall f. FooF f -> Int
+  runFooF (FooF f fStr) = f fStr
+
 main :: Effect Unit
 main = logShow $ head nats
