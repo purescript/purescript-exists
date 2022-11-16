@@ -1,5 +1,7 @@
 module Data.Exists where
 
+import Prelude
+
 import Unsafe.Coerce (unsafeCoerce)
 
 -- | This type constructor can be used to existentially quantify over a type.
@@ -31,10 +33,10 @@ type role Exists representational
 -- | The `mkExists` function is used to introduce a value of type `Exists f`, by providing a value of
 -- | type `f a`, for some type `a` which will be hidden in the existentially-quantified type.
 -- |
--- | For example, to create a value of type `Stream Number`, we might use `mkExists` as follows:
+-- | For example, to create a value of type `Stream Int`, we might use `mkExists` as follows:
 -- |
 -- | ```purescript
--- | nats :: Stream Number
+-- | nats :: Stream Int
 -- | nats = mkExists $ StreamF 0 (\n -> Tuple (n + 1) n)
 -- | ```
 mkExists :: forall f a. f a -> Exists f
@@ -55,3 +57,12 @@ mkExists = unsafeCoerce
 -- | ```
 runExists :: forall f r. (forall a. f a -> r) -> Exists f -> r
 runExists = unsafeCoerce
+
+-- | The `mapExists` function is used to convert `Exists f` types to `Exists g` types with `f ~> g`.
+-- |
+-- | ```purescript
+-- | natsShow :: Stream String
+-- | natsShow = mapExists (\StreamF s f -> StreamF s $ map show f) $ StreamF 0 (\n -> Tuple (n + 1) n)
+-- | ```
+mapExists :: forall f g. (f ~> g) -> Exists f -> Exists g
+mapExists f = runExists (mkExists <<< f)
