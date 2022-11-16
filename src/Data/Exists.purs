@@ -1,5 +1,7 @@
 module Data.Exists where
 
+import Prelude
+
 import Unsafe.Coerce (unsafeCoerce)
 
 -- | This type constructor can be used to existentially quantify over a type.
@@ -55,3 +57,12 @@ mkExists = unsafeCoerce
 -- | ```
 runExists :: forall f r. (forall a. f a -> r) -> Exists f -> r
 runExists = unsafeCoerce
+
+-- | The `mapExists` function is used to convert `Exists f` types to `Exists g` types with `f ~> g`.
+-- |
+-- | ```purescript
+-- | natsShow :: Stream String
+-- | natsShow = mapExists (\StreamF s f -> StreamF s $ map show f) $ StreamF 0 (\n -> Tuple (n + 1) n)
+-- | ```
+mapExists :: forall f g. (f ~> g) -> Exists f -> Exists g
+mapExists f = runExists (mkExists <<< f)

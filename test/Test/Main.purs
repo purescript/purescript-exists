@@ -2,12 +2,14 @@ module Test.Main where
 
 import Prelude
 
+import Data.Exists (Exists, mapExists, mkExists, runExists)
 import Effect (Effect)
 import Effect.Console (logShow)
 
-import Data.Exists (Exists, mkExists, runExists)
-
 data Tuple a b = Tuple a b
+
+instance Functor (Tuple a) where
+  map f (Tuple a b) = Tuple a (f b)
 
 snd :: forall a b. Tuple a b -> b
 snd (Tuple _ b) = b
@@ -43,6 +45,9 @@ x = runExists runFooF foo
   where
   runFooF :: forall f. FooF f -> Int
   runFooF (FooF f fStr) = f fStr
+
+natsShow :: Stream String
+natsShow = mapExists (\(StreamF s f) -> StreamF s (map (map show) f)) nats
 
 main :: Effect Unit
 main = logShow $ head nats
