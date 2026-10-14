@@ -2,10 +2,9 @@ module Test.Main where
 
 import Prelude
 
+import Data.Exists (Exists, mkExists, runExists)
 import Effect (Effect)
 import Effect.Console (logShow)
-
-import Data.Exists (Exists, mkExists, runExists)
 
 data Tuple a b = Tuple a b
 

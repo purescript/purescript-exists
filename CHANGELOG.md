@@ -17,6 +17,7 @@ Other improvements:
 ## [v6.0.0](https://github.com/purescript/purescript-exists/releases/tag/v6.0.0) - 2022-04-27
 
 Breaking changes:
+
 - Update project and deps to PureScript v0.15.0 (#17 by @JordanMartinez)
 
 New features:
@@ -28,17 +29,21 @@ Other improvements:
 ## [v5.1.0](https://github.com/purescript/purescript-exists/releases/tag/v5.1.0) - 2021-06-25
 
 New features:
+
 - Generalized `Exists` to hold non-`Type`-kinded types (#14 by @rhendric)
 
 ## [v5.0.0](https://github.com/purescript/purescript-exists/releases/tag/v5.0.0) - 2021-02-26
 
 Breaking changes:
+
 - Added support for PureScript 0.14 and dropped support for all previous versions (#10)
 
 New features:
-- Added roles declarations to allow safe coercions (#9) 
+
+- Added roles declarations to allow safe coercions (#9)
 
 Other improvements:
+
 - Migrated CI to GitHub Actions and updated installation instructions to use Spago (#11)
 - Added a CHANGELOG.md file and pull request template (#12, #13)
 
