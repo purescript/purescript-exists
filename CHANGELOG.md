@@ -12,6 +12,8 @@ Bugfixes:
 
 Other improvements:
 
+- Migrate from Bower/Pulp to Spago and update CI and formatting tools.
+
 ## [v6.0.0](https://github.com/purescript/purescript-exists/releases/tag/v6.0.0) - 2022-04-27
 
 Breaking changes:
@@ -77,4 +79,3 @@ Update docs
 ## [v0.1.0](https://github.com/purescript/purescript-exists/releases/tag/v0.1.0) - 2014-11-05
 
 Initial versioned release.
-
